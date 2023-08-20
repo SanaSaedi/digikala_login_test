@@ -2,6 +2,10 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
 
+DIGIKALA_USERNAME = ''
+DIGIKALA_PASSWORD = ''
+
+DIGIKALA_NAME = ''
 
 driver = webdriver.Chrome()
 
@@ -17,7 +21,7 @@ time.sleep(2)
 
 username_input = driver.find_element(By.XPATH, '//input[@name="username"]')
 
-username_input.send_keys('09197534604')
+username_input.send_keys(DIGIKALA_USERNAME)
 
 time.sleep(2)
 
@@ -37,7 +41,7 @@ time.sleep(2)
 
 password_input = driver.find_element(By.XPATH, '//input[@name="password"]')
 
-password_input.send_keys('66632171')
+password_input.send_keys(DIGIKALA_PASSWORD)
 
 submit_button = driver.find_element(By.XPATH, '//button[@type="submit"]')
 
@@ -54,10 +58,7 @@ profile_button.click()
 
 profile = driver.find_element(By.XPATH, '//a[@data-cro-id="header-profile-detail"]')
 
-if profile.text == 'ثنا ساعدی' :
+if profile.text == DIGIKALA_NAME:
     print('test passed')
 else:
     print('test failed')
-
-
-time.sleep(25)
